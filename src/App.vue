@@ -6,7 +6,7 @@ import EntryEditor from "./components/EntryEditor.vue"
 import EntryCard from "@/components/EntryCard.vue"
 
 import type { User } from "./types/User"
-import type { Emoji } from "./types/Emoji"
+import type { Entry } from "./types/Entry"
 
 const sum = (x: number) => x * 2
 sum(2)
@@ -19,7 +19,7 @@ const user: User = reactive({
 
 console.log(user.id)
 
-function handleCreateEntry(entry: { text: string; emoji: Emoji | null }) {
+function handleCreateEntry(entry: Entry) {
   console.log(entry)
 }
 </script>

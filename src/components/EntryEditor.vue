@@ -3,6 +3,7 @@ import EmojiField from "@/components/EmojiField.vue"
 import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg"
 import { computed, ref } from "vue"
 import type { Emoji } from "@/types/Emoji"
+import type { Entry } from "@/types/Entry"
 
 const textMaxLength = 280
 const text = ref("")
@@ -12,6 +13,7 @@ const emoji = ref<Emoji | null>(null)
 // Editor should only allow you to use the Emojis from the Emoji type
 
 const charCount = computed(() => text.value.length)
+
 // In this case we don't need to explictly set the type
 // As it is very straighforward and would be redundant
 // (length ALWAYS returns a number)
@@ -19,7 +21,7 @@ const charCount = computed(() => text.value.length)
 
 // defineEmits(["create"])
 defineEmits<{
-  (e: "@create", entry: { text: string; emoji: Emoji | null }): void
+  (e: "@create", entry: Entry): void
 }>()
 /**
  * Handy defineEmits snippet:
