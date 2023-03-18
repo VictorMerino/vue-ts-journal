@@ -17,7 +17,14 @@ const charCount = computed(() => text.value.length)
 // (length ALWAYS returns a number)
 // const charCount = computed<number>(() => text.value.length)
 
-defineEmits(["create"])
+// defineEmits(["create"])
+defineEmits<{
+  (e: "create", entry: { text: string; emoji: Emoji | null }): void
+}>()
+/**
+ * Handy defineEmits snippet:
+ * https://gist.github.com/danielkellyio/773d37ccc89ba069d650dcca09b402a1
+ */
 
 function handleTextInput(e: Event) {
   const textarea = e.target as HTMLTextAreaElement
