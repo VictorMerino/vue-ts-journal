@@ -27,7 +27,7 @@ function entryCreated(e) {
   <main class="container m-auto p-10">
     {{ user.username }}
     <TheHeader />
-    <EntryEditor @create="entryCreated" />
+    <EntryEditor @@create="entryCreated" />
     <ul>
       <li>
         <EntryCard />

@@ -19,7 +19,7 @@ const charCount = computed(() => text.value.length)
 
 // defineEmits(["create"])
 defineEmits<{
-  (e: "create", entry: { text: string; emoji: Emoji | null }): void
+  (e: "@create", entry: { text: string; emoji: Emoji | null }): void
 }>()
 /**
  * Handy defineEmits snippet:
@@ -38,7 +38,7 @@ function handleTextInput(e: Event) {
 }
 </script>
 <template>
-  <form class="entry-form" @submit.prevent="$emit('create', { text, emoji })">
+  <form class="entry-form" @submit.prevent="$emit('@create', { text, emoji })">
     <textarea
       :value="text"
       @keyup="handleTextInput"
