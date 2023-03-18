@@ -40,7 +40,10 @@ function handleTextInput(e: Event) {
 }
 </script>
 <template>
-  <form class="entry-form" @submit.prevent="$emit('@create', { text, emoji })">
+  <form
+    class="entry-form"
+    @submit.prevent="$emit('@create', { body: text, emoji })"
+  >
     <textarea
       :value="text"
       @keyup="handleTextInput"
