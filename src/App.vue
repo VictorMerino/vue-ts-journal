@@ -17,13 +17,17 @@ const user: User = reactive({
 })
 
 console.log(user.id)
+
+function entryCreated(e) {
+  console.log(e)
+}
 </script>
 
 <template>
   <main class="container m-auto p-10">
     {{ user.username }}
     <TheHeader />
-    <EntryEditor />
+    <EntryEditor @create="entryCreated" />
     <ul>
       <li>
         <EntryCard />

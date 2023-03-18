@@ -17,6 +17,8 @@ const charCount = computed(() => text.value.length)
 // (length ALWAYS returns a number)
 // const charCount = computed<number>(() => text.value.length)
 
+defineEmits(["create"])
+
 function handleTextInput(e: Event) {
   const textarea = e.target as HTMLTextAreaElement
 
@@ -29,7 +31,7 @@ function handleTextInput(e: Event) {
 }
 </script>
 <template>
-  <form class="entry-form" @submit.prevent>
+  <form class="entry-form" @submit.prevent="$emit('create', { text, emoji })">
     <textarea
       :value="text"
       @keyup="handleTextInput"
