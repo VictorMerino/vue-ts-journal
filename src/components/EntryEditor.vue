@@ -42,12 +42,20 @@ function handleTextInput(e: Event) {
 <template>
   <form
     class="entry-form"
-    @submit.prevent="$emit('@create', { body: text, emoji })"
+    @submit.prevent="
+      $emit('@create', {
+        body: text,
+        emoji,
+        createdAt: new Date(),
+        userId: 1,
+        id: Math.random(),
+      })
+    "
   >
     <textarea
       :value="text"
-      @keyup="handleTextInput"
       placeholder="New Journal Entry for danielkelly_io"
+      @keyup="handleTextInput"
     ></textarea>
     <EmojiField v-model="emoji" />
     <div class="entry-form-footer">
