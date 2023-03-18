@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import EmojiField from "@/components/EmojiField.vue"
-import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg"
+import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg?component"
 import { computed, ref } from "vue"
 import type { Emoji } from "@/types/Emoji"
 import type { Entry } from "@/types/Entry"
