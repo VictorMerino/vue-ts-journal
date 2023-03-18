@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import TheHeader from "@/components/TheHeader.vue";
-import EntryEditor from "./components/EntryEditor.vue";
-import EntryCard from "@/components/EntryCard.vue";
+import { reactive } from "vue"
 
-const sum = (x: number) => x * 2;
-sum(2);
+import TheHeader from "@/components/TheHeader.vue"
+import EntryEditor from "./components/EntryEditor.vue"
+import EntryCard from "@/components/EntryCard.vue"
+
+import type { User } from "./types/User"
+
+const sum = (x: number) => x * 2
+sum(2)
+
+const user: User = reactive({
+  id: 1,
+  username: "Davol",
+  settings: [] as string[],
+})
+
+console.log(user.id)
 </script>
 
 <template>
   <main class="container m-auto p-10">
+    {{ user.username }}
     <TheHeader />
     <EntryEditor />
     <ul>
