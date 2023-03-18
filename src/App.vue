@@ -2,6 +2,9 @@
 import TheHeader from "@/components/TheHeader.vue";
 import EntryEditor from "./components/EntryEditor.vue";
 import EntryCard from "@/components/EntryCard.vue";
+
+const sum = (x: number) => x * 2;
+sum(2);
 </script>
 
 <template>
