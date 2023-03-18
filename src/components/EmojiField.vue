@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import UseEmojis from "@/composables/UseEmojis";
-const { emojis } = UseEmojis();
+import UseEmojis from "@/composables/UseEmojis"
+const { emojis } = UseEmojis()
 
-defineProps(["modelValue"]);
-defineEmits(["update:modelValue"]);
+defineProps(["modelValue"])
+defineEmits(["update:modelValue"])
 </script>
 
 <template>

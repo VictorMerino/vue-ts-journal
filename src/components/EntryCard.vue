@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import DateDisplay from "./DateDisplay.vue";
-import UseEmojis from "@/composables/UseEmojis";
-const { findEmoji } = UseEmojis();
+import DateDisplay from "./DateDisplay.vue"
+import UseEmojis from "@/composables/UseEmojis"
+const { findEmoji } = UseEmojis()
 </script>
 <template>
   <div class="entry-card">

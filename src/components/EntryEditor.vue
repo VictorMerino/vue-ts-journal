@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import EmojiField from "@/components/EmojiField.vue";
-import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
+import EmojiField from "@/components/EmojiField.vue"
+import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg"
 </script>
 <template>
   <form class="entry-form" @submit.prevent>
