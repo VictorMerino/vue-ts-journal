@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue"
+import { computed, reactive } from "vue"
 
 import TheHeader from "@/components/TheHeader.vue"
 import EntryEditor from "./components/EntryEditor.vue"
@@ -17,10 +17,12 @@ const user: User = reactive({
   settings: [] as string[],
 })
 
+const entries = reactive<Entry[]>([])
+const entriesReversed = computed(() => [...entries].reverse())
 console.log(user.id)
 
 function handleCreateEntry(entry: Entry) {
-  console.log(entry)
+  entries.push(entry)
 }
 </script>
 
@@ -30,6 +32,9 @@ function handleCreateEntry(entry: Entry) {
     <TheHeader />
     <EntryEditor @@create="handleCreateEntry" />
     <ul>
+      <li v-for="entry in entriesReversed" :key="entry.id">
+        <pre>{{ entry }}</pre>
+      </li>
       <li>
         <EntryCard />
       </li>
