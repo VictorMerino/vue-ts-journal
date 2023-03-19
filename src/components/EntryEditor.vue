@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import EmojiField from "@/components/EmojiField.vue"
 import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg?component"
-import { computed, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import type { Emoji } from "@/types/Emoji"
 import type { Entry } from "@/types/Entry"
 
@@ -13,6 +13,10 @@ const emoji = ref<Emoji | null>(null)
 // Editor should only allow you to use the Emojis from the Emoji type
 
 const charCount = computed(() => text.value.length)
+
+// Template refs
+const textarea = ref<HTMLTextAreaElement | null>(null)
+onMounted(() => textarea.value?.focus())
 
 // In this case we don't need to explictly set the type
 // As it is very straighforward and would be redundant
@@ -54,6 +58,7 @@ function handleSubmit() {
 <template>
   <form class="entry-form" @submit.prevent="handleSubmit">
     <textarea
+      ref="textarea"
       :value="text"
       placeholder="New Journal Entry for danielkelly_io"
       @keyup="handleTextInput"
