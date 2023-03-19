@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from "vue"
+import { computed, reactive, provide } from "vue"
 
 import TheHeader from "@/components/TheHeader.vue"
 import EntryEditor from "./components/EntryEditor.vue"
@@ -7,6 +7,8 @@ import EntryCard from "@/components/EntryCard.vue"
 
 import type { User } from "./types/User"
 import type { Entry } from "./types/Entry"
+
+import { userInjectionKey } from "./injectionKeys"
 
 const sum = (x: number) => x * 2
 sum(2)
@@ -16,6 +18,7 @@ const user: User = reactive({
   username: "Davol",
   settings: [] as string[],
 })
+provide(userInjectionKey, user)
 
 const entries = reactive<Entry[]>([])
 const entriesReversed = computed(() => [...entries].reverse())
