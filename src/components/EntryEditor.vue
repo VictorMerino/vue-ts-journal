@@ -20,7 +20,7 @@ const charCount = computed(() => text.value.length)
 // const charCount = computed<number>(() => text.value.length)
 
 // defineEmits(["create"])
-defineEmits<{
+const emit = defineEmits<{
   (e: "@create", entry: Entry): void
 }>()
 /**
@@ -38,20 +38,21 @@ function handleTextInput(e: Event) {
   return (text.value = textarea.value =
     textAreaValue.substring(0, textMaxLength))
 }
+
+function handleSubmit() {
+  emit("@create", {
+    body: text.value,
+    emoji: emoji.value,
+    createdAt: new Date(),
+    userId: 1,
+    id: Math.random(),
+  })
+  text.value = ""
+  emoji.value = null
+}
 </script>
 <template>
-  <form
-    class="entry-form"
-    @submit.prevent="
-      $emit('@create', {
-        body: text,
-        emoji,
-        createdAt: new Date(),
-        userId: 1,
-        id: Math.random(),
-      })
-    "
-  >
+  <form class="entry-form" @submit.prevent="handleSubmit">
     <textarea
       :value="text"
       placeholder="New Journal Entry for danielkelly_io"
