@@ -15,7 +15,7 @@ sum(2)
 
 const user: User = reactive({
   id: 1,
-  username: "Davol",
+  userName: "Davol",
   settings: [] as string[],
 })
 provide(userInjectionKey, user)
@@ -31,7 +31,7 @@ function handleCreateEntry(entry: Entry) {
 
 <template>
   <main class="container m-auto p-10">
-    {{ user.username }}
+    {{ user.userName }}
     <TheHeader />
     <EntryEditor @@create="handleCreateEntry" />
     <ul>

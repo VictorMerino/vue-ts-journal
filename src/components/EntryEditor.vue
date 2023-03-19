@@ -52,6 +52,7 @@ function handleSubmit() {
     emoji: emoji.value,
     createdAt: new Date(),
     userId: injectedUser?.id || 0,
+    userName: injectedUser?.userName || "Anonymous",
     id: Math.random(),
   })
   text.value = ""
@@ -63,7 +64,7 @@ function handleSubmit() {
     <textarea
       ref="textarea"
       :value="text"
-      :placeholder="`New Journal Entry for ${injectedUser?.username}`"
+      :placeholder="`New Journal Entry for ${injectedUser?.userName}`"
       @keyup="handleTextInput"
     ></textarea>
     <EmojiField v-model="emoji" />

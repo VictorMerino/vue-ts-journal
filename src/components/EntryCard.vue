@@ -21,7 +21,7 @@ defineProps<{ entry: Entry }>()
     <div class="entry-footer">
       <DateDisplay :date="entry.createdAt" class="mr-2" />
       |
-      <span class="ml-2">{{ entry.userId }}</span>
+      <span class="ml-2">{{ entry.userName }}</span>
     </div>
   </div>
 </template>

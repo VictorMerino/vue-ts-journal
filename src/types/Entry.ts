@@ -6,4 +6,5 @@ export interface Entry {
   emoji: Emoji | null
   createdAt: Date
   userId: number
+  userName: string
 }
