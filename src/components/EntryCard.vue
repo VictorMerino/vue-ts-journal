@@ -10,9 +10,7 @@ const { findEmoji } = UseEmojis()
 }) */
 
 // And this is the TS way:
-/* const props =  */ defineProps<{
-  entry: Entry
-}>()
+defineProps<{ entry: Entry }>()
 </script>
 <template>
   <div class="entry-card">
