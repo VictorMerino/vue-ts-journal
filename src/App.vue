@@ -33,11 +33,9 @@ function handleCreateEntry(entry: Entry) {
     <EntryEditor @@create="handleCreateEntry" />
     <ul>
       <li v-for="entry in entriesReversed" :key="entry.id">
-        <pre>{{ entry }}</pre>
+        <EntryCard :entry="entry" />
       </li>
-      <li>
-        <EntryCard />
-      </li>
+      <li></li>
     </ul>
   </main>
 </template>
