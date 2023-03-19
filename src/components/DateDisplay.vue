@@ -20,7 +20,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.formatted
+    this.$http("https://api.api-ninjas.com/v1/planets")
   },
 })
 </script>
